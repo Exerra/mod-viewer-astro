@@ -1,0 +1,30 @@
+---
+import { useStoryblokApi } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+
+export const getStaticPaths = async () => {
+
+    const storyblokApi = useStoryblokApi()
+    const { data } = await storyblokApi.get("cdn/stories", {
+        version: import.meta.env.DEV ? "draft" : "published"
+    });
+
+    const pages = data.stories.map(story => {
+
+        return {
+            params: {
+                slug: story.full_slug
+            },
+            props: {
+                story
+            }
+        }
+    })
+  return pages
+}
+
+
+const { story } = Astro.props
+---
+
+<StoryblokComponent blok={{...story.content, name: story.name}} />

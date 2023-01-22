@@ -1,0 +1,40 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+import { useStoryblokApi } from "@storyblok/astro";
+import ImageCard from "../../components/ImageCard.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const storyblokAPI = useStoryblokApi()
+
+const { data } = await storyblokAPI.get("cdn/stories", {
+    version: import.meta.env.DEV ? "draft" : "published",
+    content_type: "mod",
+    starts_with: "mods/fallout-new-vegas/"
+})
+
+const posts = data.stories.map(story => {
+    return {
+        title: story.name,
+        image: story.content.image.url,
+        description: story.content.short_description,
+        slug: story.full_slug
+    }
+})
+
+const { blok } = Astro.props
+---
+
+<div {...storyblokEditable(blok)}>
+    <h1 class="text-5xl font-bold mt-12">Fallout New Vegas</h1>
+
+    <div class="flex flex-wrap mt-10 gap-6 justify-between"> 
+        {posts.map(post => (
+            <ImageCard
+                title={post.title} 
+                description={post.description} 
+                image={post.image} 
+                href={`/${post.slug}`} 
+            />
+        ))}
+    </div>
+</div>

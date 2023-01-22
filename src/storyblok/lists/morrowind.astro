@@ -1,0 +1,39 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+import { useStoryblokApi } from "@storyblok/astro";
+import ImageCard from "../../components/ImageCard.astro";
+
+const storyblokAPI = useStoryblokApi()
+
+const { data } = await storyblokAPI.get("cdn/stories", {
+    version: import.meta.env.DEV ? "draft" : "published",
+    content_type: "mod",
+    starts_with: "mods/morrowind/"
+})
+
+const posts = data.stories.map(story => {
+    return {
+        title: story.name,
+        image: story.content.image.url,
+        description: story.content.short_description,
+        slug: story.full_slug
+    }
+})
+
+const { blok } = Astro.props
+---
+
+<div {...storyblokEditable(blok)}>
+    <h1 class="text-5xl font-bold mt-24">Morrowind</h1>
+
+    <div class="flex flex-wrap gap-6 mt-10 justify-between"> 
+        {posts.map(post => (
+            <ImageCard
+                title={post.title} 
+                description={post.description} 
+                image={post.image} 
+                href={`/${post.slug}`} 
+            />
+        ))}
+    </div>
+</div>

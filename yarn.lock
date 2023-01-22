@@ -453,6 +453,21 @@
   dependencies:
     tsm "^2.1.4"
 
+"@storyblok/astro@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@storyblok/astro/-/astro-2.0.4.tgz#c4c0a2cad88cb16ea6689fc527b94dcd324ce6c1"
+  integrity sha512-ih08oT+t6xoDN2r1QPRNketRixqaQPY/Ih3+h7pSjGWSCxzjEdT2P7R6hxmwANFG5E1uaW1lJ5uhyIrBGfHvbQ==
+  dependencies:
+    "@storyblok/js" "^2.0.9"
+    camelcase "^7.0.1"
+
+"@storyblok/js@^2.0.9":
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/@storyblok/js/-/js-2.0.9.tgz#41431407f47883c465106b5adebcb2e250fe61a0"
+  integrity sha512-gqA4D66u44HwE2L4SOEkom9/strecQk0Gy/U31wqu3DIPhf9CDQzPgVEdm0ws7UZPPiwROO0HJ6Ll1zpYNOXYA==
+  dependencies:
+    storyblok-js-client "^5.3.3"
+
 "@types/acorn@^4.0.0":
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/@types/acorn/-/acorn-4.0.6.tgz#d61ca5480300ac41a7d973dd5b84d0a591154a22"
@@ -846,6 +861,11 @@ camelcase@^6.2.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-6.3.0.tgz#5685b95eb209ac9c0c177467778c9c84df58ba9a"
   integrity sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==
+
+camelcase@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-7.0.1.tgz#f02e50af9fd7782bc8b88a3558c32fd3a388f048"
+  integrity sha512-xlx1yCK2Oc1APsPXDL2LdlNP6+uu8OCDdhOBSVT279M/S+y75O30C2VuD8T2ogdePBBl7PfPF4504tnLgX3zfw==
 
 caniuse-lite@^1.0.30001400, caniuse-lite@^1.0.30001426:
   version "1.0.30001446"
@@ -3085,6 +3105,11 @@ sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==
+
+storyblok-js-client@^5.3.3:
+  version "5.3.3"
+  resolved "https://registry.yarnpkg.com/storyblok-js-client/-/storyblok-js-client-5.3.3.tgz#d2f42719c2f4072d9f6551acea321d75cdef2d2a"
+  integrity sha512-HdRPqU3k7R2W+tQ2fr7J2KTgkxE6t2dyrdMGro9Lo/QHPCVNMvNdyiWexdyAai8XfjR+wNdZt31IeeHZKZJyqQ==
 
 string-width@^4.1.0:
   version "4.2.3"

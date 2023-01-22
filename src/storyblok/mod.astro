@@ -1,0 +1,42 @@
+---
+import { storyblokEditable, renderRichText } from '@storyblok/astro'
+import DescriptionCard from '../components/DescriptionCard.astro';
+import Layout from '../layouts/Layout.astro';
+const { blok } = Astro.props
+
+const content = renderRichText(blok.description)
+const installSteps = renderRichText(blok.install_steps)
+console.log(blok)
+---
+
+<Layout title={blok.title}>
+    <div {...storyblokEditable(blok)}>
+        <div class="flex flex-wrap gap-6 mt-12"> 
+
+            <DescriptionCard>
+                <h1 class="text-4xl font-bold text-theme-500">{blok.name}</h1>
+                <p class="text-xl mt-2 font-bold">{blok.game_name}</p>
+            </DescriptionCard>
+
+            <DescriptionCard>
+                <h2 class="text-4xl font-bold mb-2">Description</h2>
+                <Fragment set:html={content} />
+            </DescriptionCard>
+
+            <DescriptionCard>
+                <h2 class="text-4xl font-bold mb-2">Install steps</h2>
+                <Fragment set:html={installSteps} />
+            </DescriptionCard>
+
+            <DescriptionCard>
+                <h2 class="text-4xl font-bold mb-2">Download latest</h2>
+                <p class="mb-5">By clicking this button the mod will be downloaded to your default downloads folder</p>
+                <a href={blok.download_latest.url} download={""}><button class="p-5 py-3 bg-theme-100 text-theme-500 w-full rounded-xl hover:bg-theme-200 transition ease-in-out">Download</button></a>
+            </DescriptionCard>
+        </div>
+        
+        <div class="mt-6">
+            <img class={"rounded-2xl w-full"} src={blok.image.url} />
+        </div>
+    </div>
+</Layout> 

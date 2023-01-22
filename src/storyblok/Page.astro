@@ -1,0 +1,19 @@
+---
+import { storyblokEditable } from '@storyblok/astro'
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import Layout from '../layouts/Layout.astro';
+const { blok } = Astro.props
+
+console.log(blok)
+
+---
+ 
+<Layout title="Exerra's mods">
+  	<div {...storyblokEditable(blok)}> 
+		{
+			blok.body?.map((blok) => {
+				return <StoryblokComponent blok={blok} />
+			})
+		}
+  	</div>
+</Layout>
