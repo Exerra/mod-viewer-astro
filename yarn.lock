@@ -703,6 +703,11 @@ ast-types@0.14.2:
   dependencies:
     tslib "^2.0.1"
 
+astro-seo@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/astro-seo/-/astro-seo-0.7.0.tgz#74ff0accfbc0eb52475418988683f2a259fe9112"
+  integrity sha512-G7zJUr4lfKLeqfWx2g5rfuBsOsIOfqxIOqErQfrMsMchDFfLFxNKAuW8yAo8hynJJwBvtGyS/vOXgGdMVVCFrA==
+
 astro@^1.9.0:
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/astro/-/astro-1.9.2.tgz#8934dbc536653a82ddfa241a4b5a68869e428a87"

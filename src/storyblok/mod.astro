@@ -6,10 +6,9 @@ const { blok } = Astro.props
 
 const content = renderRichText(blok.description)
 const installSteps = renderRichText(blok.install_steps)
-console.log(blok)
 ---
 
-<Layout title={blok.title}>
+<Layout title={blok.title} description={blok.short_description} image={blok.image.url}>
     <div class="mt-12" {...storyblokEditable(blok)}>
         <DescriptionCard>
             <h1 class="text-4xl font-bold text-theme-500">{blok.name}</h1>
