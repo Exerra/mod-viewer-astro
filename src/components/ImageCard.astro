@@ -9,7 +9,7 @@ export interface Props {
 const { href, title, description, image } = Astro.props;
 ---
 
-<a class="overflow-hidden bg-white rounded-[24px] basis-[47.9%]" href={href}>
+<a class="overflow-hidden bg-white rounded-[24px] md:basis-[47.9%] w-full" href={href}>
     <div>
         <img class="w-full" src={image} />
         <div class="p-7">
