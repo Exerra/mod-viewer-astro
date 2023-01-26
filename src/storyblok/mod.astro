@@ -1,4 +1,5 @@
 ---
+import { Image, Picture } from "@astrojs/image/components"
 import { storyblokEditable, renderRichText } from '@storyblok/astro'
 import DescriptionCard from '../components/DescriptionCard.astro';
 import Layout from '../layouts/Layout.astro';
@@ -37,7 +38,14 @@ const installSteps = renderRichText(blok.install_steps)
         </div>
         
         <div class="mt-6">
-            <img class={"rounded-2xl w-full"} src={blok.image.url} alt={`Thumbnail`} />
+            <Picture
+                class={"rounded-2xl w-full"}
+                alt={`Thumbnail`}
+                src={blok.image.url}
+                aspectRatio={"16:9"}
+                widths={[600, 1000]}
+                sizes={"(max-width: 1000px) 100vw, 1000px"}
+            />
         </div>
     </div>
 </Layout> 

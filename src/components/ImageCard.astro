@@ -1,4 +1,6 @@
 ---
+import { Image } from "@astrojs/image/components"
+
 export interface Props {
 	title: string;
 	description: string;
@@ -11,7 +13,15 @@ const { href, title, description, image } = Astro.props;
 
 <a class="overflow-hidden bg-white rounded-[24px] md:basis-[47.9%] w-full" href={href}>
     <div>
-        <img class="w-full" src={image} alt={`Thumbnail for ${title}`} />
+        <Image
+            class={"w-full"}
+            alt={`Thumbnail for ${title}`}
+            src={image}
+            aspectRatio={"16:9"}
+            width={600}
+            height={338}
+            format={"webp"}
+        />
         <div class="p-7">
             <h2 class="text-3xl font-bold mb-2 text-theme-500">{title}</h2>
             <p>{description}</p>
